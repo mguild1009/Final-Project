@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
+</head>
+
+
+
+<style>
+    div.background {
+     
+      background: url(intro.png) repeat;
+      border: 2px solid black;
+    }
+    
+    div.transbox {
+      margin: 300px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+    
+    div.transbox p {
+      margin: 5%;
+      font-weight: bold;
+      color: #000000;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="background">
+      <div class="transbox">
+        <p style=" font-size:70px;color: purple; text-align:center"> Welcome to Whiskey Business </p>
+        <p style=" font-size:50px;color: purple;font-style: italic; text-align:center">“A taste you cannot refuse” 
+        </p>
+      </div>
+    </div>
+
+
+    
+
+
+
+
+<body>
+  <div class="sign-in-or-sign-out"></div>
+ 
+  <!-- Put the Firebase config here -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyCzMiyKuZvgy8AukUDyKmCo5bT_MNg84NI",
+    authDomain: "kiei-451-9f663.firebaseapp.com",
+    projectId: "kiei-451-9f663",
+    storageBucket: "kiei-451-9f663.appspot.com",
+    messagingSenderId: "439442806346",
+    appId: "1:439442806346:web:722f65ff150b880ebef8b3"
+    } // replace
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="index.js"></script>
+</body>
+
+</html>
