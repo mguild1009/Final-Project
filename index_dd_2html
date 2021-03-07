@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
+</head>
+
+<div class="px-4 md:flex items-center bg-gray-100">
+    <div class="md:w-1/16 m-auto md:p-2">
+      <img class="rounded-xl" src="intro.png">
+    </div>
+
+    <style>
+        .center {
+          text-align: center;
+          border: 3px solid green;
+        }
+    </style>
+        
+    <div class="md:w-1/2 p-8 space-y-2">
+      <h2 class="font-bold text-xl">Bringing AI to the peaks</h2>
+      <p>We built an AI-based revenue management software for <a href="https://carlton-stmoritz.ch/en/">5-star ski resort.</a></p>
+     
+      <h2 class="font-bold text-xl">More guests, higher value</h2>
+      <p>43% profit uplift with 18 percentage points higher occupancy rate.</p>
+     
+      <h2 class="font-bold text-xl">Happier hoteliers</h2>
+      <p>"After we used D2G's SRM software, the only thing we regret was not buying it earlier."</p>
+     
+
+    </div>
+  </div>
+
+
+<body>
+  <div class="sign-in-or-sign-out"></div>
+ 
+  <!-- Put the Firebase config here -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyCzMiyKuZvgy8AukUDyKmCo5bT_MNg84NI",
+    authDomain: "kiei-451-9f663.firebaseapp.com",
+    projectId: "kiei-451-9f663",
+    storageBucket: "kiei-451-9f663.appspot.com",
+    messagingSenderId: "439442806346",
+    appId: "1:439442806346:web:722f65ff150b880ebef8b3"
+    } // replace
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="index.js"></script>
+</body>
+
+</html>
