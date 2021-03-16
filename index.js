@@ -1,18 +1,32 @@
+let db = firebase.firestore() 
 firebase.auth().onAuthStateChanged(async function(user) {
-
-
 
   if (user) {
     // Signed in
     console.log('signed in')
 
-    let db = firebase.firestore() 
 
-    db.collection('user').doc(user.uid).set({ // DD: Create a new collection named 'user' and take the below variables from the website as documents in the collection
+
+    
+  // NOTE! change the background
+      db.collection('user').doc(user.uid).set({
       name: user.displayName, 
       email: user.email
     })
+  
 
+
+    let response = await fetch('/.netlify/functions/get_whiskey') 
+    let whiskey = await response.json()
+    for (let i=0; i<whiskey.length; i++) {
+      let whiskey = whiskey[i]
+      renderPost(whiskey.Name, whiskey.Age, whiskey.Region, whiskey.imageUrl)
+
+  // NOTE! change the backgroundLoad the whiskey 
+
+    }
+
+    
   document.querySelector('.sign-in-or-sign-out').innerHTML=` 
   <a href="#" class="sign-out text-pink-500 underLine">Sign out</a>
   `
@@ -21,7 +35,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
     event.preventDefault()
     console.log('signed out')
     firebase.auth().signOut()
-    document.location.href='index_dd_4.html'
+    document.location.href='index_dd_5.html'
   })
   
 }
@@ -38,7 +52,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
-      signInSuccessUrl: 'index_dd_4.html'
+      signInSuccessUrl: 'index_dd_5.html'
     }
 
     // Starts FirebaseUI Auth
