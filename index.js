@@ -6,21 +6,32 @@ firebase.auth().onAuthStateChanged(async function(user) {
     console.log('signed in')
 
 
-
-    
   // NOTE! change the background
+    document.body.style.backgroundColor = "purple";
+
       db.collection('user').doc(user.uid).set({
       name: user.displayName, 
       email: user.email
     })
-  
+    
+      let response = await fetch('/.netlify/functions/get_whiskey') // < change this to get_whiskey
+      let posts = await response.json()
+      for (let i=0; i<posts.length; i++) {
+        let post = posts[i]
+        renderPost(post.id, post.username, post.imageUrl, post.likes)
+      
 
 
-    let response = await fetch('/.netlify/functions/get_whiskey') 
-    let whiskey = await response.json()
-    for (let i=0; i<whiskey.length; i++) {
-      let whiskey = whiskey[i]
       renderPost(whiskey.Name, whiskey.Age, whiskey.Region, whiskey.imageUrl)
+
+
+
+      document.querySelector('.whiskey').insertAdjacentHTML('beforeend', `
+            <div class="todo-${whiskeyName} py-4 text-xl border-b-2 border-purple-500 w-full">
+              <a href="#" class="done p-2 text-sm bg-green-500 text-white">✓</a>
+              ${whiskey.Name}
+              </div>
+          `)
 
   // NOTE! change the backgroundLoad the whiskey 
 
@@ -35,15 +46,13 @@ firebase.auth().onAuthStateChanged(async function(user) {
     event.preventDefault()
     console.log('signed out')
     firebase.auth().signOut()
-    document.location.href='index_dd_5.html'
+    document.location.href='index.html'
   })
   
 }
   else {
     // Signed out
       
-    
-
     // Initializes FirebaseUI Auth
     let ui = new firebaseui.auth.AuthUI(firebase.auth())
 
@@ -52,7 +61,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
-      signInSuccessUrl: 'index_dd_5.html'
+      signInSuccessUrl: 'index.html'
     }
 
     // Starts FirebaseUI Auth
